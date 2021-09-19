@@ -69,6 +69,15 @@ headerTemplate.innerHTML = `
     .show-menu {
       top: calc(var(--header-height) + .5rem);
     }
+
+    .change-theme {
+      position: absolute;
+      right: 1.5rem;
+      top: 2.2rem;
+      color: var(--text-color);
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
   </style>
 
   <header>
@@ -90,7 +99,7 @@ headerTemplate.innerHTML = `
               <a href="#contact" class="nav__link">Contact us</a>
           </li>
 
-          <i class='bx bx-toggle-left change-theme' id="theme-button"></i>
+          <i class="uil uil-toggle-off change-theme" id="theme-button"></i>
         </ul>
       </div>
 
