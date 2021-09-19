@@ -5,13 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rooftop - Onboarding</title>
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/thinline.css">
+
+    <!-- UNICONS -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- MY STYLES -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- COMPONENTS -->
+    <script src="src/components/Header.js" type="text/javascript" defer></script>
+    <script src="src/components/Footer.js" type="text/javascript" defer></script>
+
   </head>
   <body>
-    <header>
-      <nav><a class="logo" href="/">Alienware</a></nav>
-    </header>
+    <!-- HEADER -->
+    <header-component></header-component>
+
     <section class="laptop__details">
       <div class="laptop__image">
         <img src="assets/img/alienware3.png" alt="alienware" />
@@ -29,5 +38,8 @@
         <a href="/laptops.html" class="button">Buy Now ($1299.99)</a>
       </div>
     </section>
+
+    <!-- FOOTER -->
+    <footer-component></footer-component>
   </body>
 </html>
