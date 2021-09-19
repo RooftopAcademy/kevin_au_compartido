@@ -1,18 +1,31 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
 :root {
+  --header-height: 3rem;
   /* COLORS */
+  --hue: 45;
+  --sat: 98%;
+  --body-color: hsl(var(--hue), 0%, 100%);
+  --color-yellow: hsl(var(--hue), var(--sat), 60%);
+  --color-yellow-alt: hsl(var(--hue), var(--sat), 53%);
   --color-dark: #272727;
   --color-white: #fff;
   --color-orange: #ff4c29;
   --color-neutral: rgba(20, 20, 20, 0.5);
+  --text-color: hsl(var(--hue), 4%, 35%);
   /* FONT WEIGHT */
   --font-semi-bold: 600;
   --font-bold: bold;
-  /* FONT SIZE */
+  /* FONT AND TYPOGRAPHY */
+  --body-font: 'Poppins', sans-serif;
   --font-small: .8rem;
   --font-big: 1.2rem;
 }
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -21,8 +34,13 @@ html {
 }
 
 body {
-  background: var(--color-dark);
-  color: var(--color-white);
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  position: relative;
+  padding-bottom: 5em;
+  min-height: 100vh;
 }
 
 a {
@@ -31,19 +49,6 @@ a {
 
 main {
   padding: 0 2rem 0 2rem;
-}
-
-header {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid var(--color-white);
-  margin-bottom: 1rem;
-}
-
-.logo {
-  color: var(--color-white);
-  font-weight: var(--font-bold);
 }
 
 .home__container {
@@ -68,11 +73,16 @@ header {
 }
 
 .button {
-  color: var(--color-white);
-  background-color: var(--color-orange);
-  padding: 1rem 1.5rem;
-  border-radius: .5rem;
+  color: var(--color-dark);
+  background-color: var(--color-yellow);
+  padding: .75rem 1.5rem;
+  border-radius: 3rem;
   font-weight: var(--font-semi-bold);
+  transition: .3s;
+}
+
+.button:hover {
+  background-color: var(--color-yellow-alt)
 }
 
 .laptops__title {
