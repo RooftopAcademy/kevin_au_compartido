@@ -47,6 +47,17 @@ headerTemplate.innerHTML = `
       row-gap: 1.5rem;
       list-style: none;
     }
+
+    @media screen and (min-width: 767px) {
+      .nav__list {
+        flex-direction: row;
+        column-gap: 2.5rem;
+      }
+
+      .nav__toggle {
+        display: none;
+      }
+    }
     
     .nav__link, .nav__logo, .nav__toggle {
       font-weight: var(--font-bold);
