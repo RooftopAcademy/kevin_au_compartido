@@ -1,0 +1,151 @@
+:root {
+  /* COLORS */
+  --color-dark: #272727;
+  --color-white: #fff;
+  --color-orange: #ff4c29;
+  --color-neutral: rgba(20, 20, 20, 0.5);
+  /* FONT WEIGHT */
+  --font-semi-bold: 600;
+  --font-bold: bold;
+  /* FONT SIZE */
+  --font-small: .8rem;
+  --font-big: 1.2rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-dark);
+  color: var(--color-white);
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  padding: 0 2rem 0 2rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-white);
+  margin-bottom: 1rem;
+}
+
+.logo {
+  color: var(--color-white);
+  font-weight: var(--font-bold);
+}
+
+.home__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.home__img {
+  max-width: 420px;
+}
+
+.home__img img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.home__description {
+  margin-bottom: 2rem;
+}
+
+.button {
+  color: var(--color-white);
+  background-color: var(--color-orange);
+  padding: 1rem 1.5rem;
+  border-radius: .5rem;
+  font-weight: var(--font-semi-bold);
+}
+
+.laptops__title {
+  text-align: center;
+}
+
+.laptops__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.laptop__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: .25rem .75rem .75rem;
+  box-shadow: 0px 8px 1px var(--color-neutral);
+  border-radius: 1rem;
+  margin: .3rem;
+}
+
+.laptop__img {
+  width: 200px;
+  justify-self: center;
+  margin-bottom: .25rem;
+}
+
+.laptop__title {
+  text-align: center;
+}
+
+.laptop__button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  padding: .5rem .625rem;
+  border-radius: 1rem 0 1rem 0;
+}
+
+.laptop__details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.laptop__image {
+  max-width: 360px;
+}
+
+.laptop__image img {
+  width: 100%;
+  height: auto;
+}
+
+.laptop__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  padding: 0 auto;
+}
+
+.laptop__description-item {
+  font-size: var(--font-small);
+}
+
+.laptop__description p:last-of-type {
+  margin-bottom: 2rem;
+}
+
+.icon {
+  font-size: var(--font-big);
+  margin-right: 4px;
+}
