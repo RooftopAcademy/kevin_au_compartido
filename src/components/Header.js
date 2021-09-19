@@ -95,7 +95,7 @@ headerTemplate.innerHTML = `
       </div>
 
       <div class="nav__toggle" id="nav-toggle">
-        <i class='bx bx-grid-alt'>a</i>
+        <i class="uil uil-apps"></i>
       </div>
     </nav>
   </header>
@@ -109,6 +109,13 @@ class Header extends HTMLElement {
   connectedCallback() {
     const shadowRoot = this.attachShadow({ mode: "open" })
 
+    // ============ ADD UNICONS  =================
+    const iconscout = document.querySelector('link[href*="unicons"]');
+    if (iconscout) {
+      shadowRoot.appendChild(iconscout.cloneNode());
+    }
+
+    // =========== RENDER CONTENT =========
     shadowRoot.appendChild(headerTemplate.content)
 
     // ============ TOOGLE MENU ============
