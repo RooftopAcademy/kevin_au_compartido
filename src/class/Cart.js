@@ -4,10 +4,10 @@ export class Cart {
   }
 
   add(product) {
-    if (product instanceof Product) {
+    if (product) {
       this.products.push(product)
     } else {
-      throw new Error('Only typeof Product is supported')
+      throw new Error('Invalid Product')
     }
   }
 }

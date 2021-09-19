@@ -22,6 +22,7 @@ headerTemplate.innerHTML = `
     .nav__logo {
       font-weight: var(--font-bold);
       text-decoration: none;
+      margin-left: 1.5rem;
     }
 
     @media screen and (max-width: 767px){
@@ -72,9 +73,26 @@ headerTemplate.innerHTML = `
       border-bottom: 1px solid black;
     }
 
-    .nav__toggle {
+    .nav__toggle, .nav__cart {
       font-size: 1.3rem;
       cursor: pointer;
+    }
+
+    .nav__cart {
+      font-size: 1.5rem;
+      position: relative;
+      font-weight: bold;
+    }
+
+    .cart__badge {
+      position: absolute;
+      background-color: var(--color-yellow);
+      padding: .1rem;
+      border-radius: 35%;
+      font-size: .7rem;
+      font-weight: bold;
+      top: -5px;
+      right: 0;
     }
 
     .show-menu {
@@ -89,13 +107,10 @@ headerTemplate.innerHTML = `
       <div class="nav__menu" id="nav-menu">
         <ul class="nav__list">
           <li class="nav__item">
-              <a href="#home" class="nav__link">Home</a>
+              <a href="index.html" class="nav__link">Home</a>
           </li>
           <li class="nav__item">
-              <a href="#about" class="nav__link">Catalog</a>
-          </li>
-          <li class="nav__item">
-              <a href="#services" class="nav__link">About Us</a>
+              <a href="laptops.html" class="nav__link">Catalog</a>
           </li>
           <li class="nav__item">
               <a href="#contact" class="nav__link">Contact us</a>
@@ -103,6 +118,11 @@ headerTemplate.innerHTML = `
 
           <i class='bx bx-toggle-left change-theme' id="theme-button"></i>
         </ul>
+      </div>
+
+      <div class="nav__cart" id="nav-cart">
+        <i class="uil uil-shopping-cart-alt"></i>
+        <span class="cart__badge">0</span>
       </div>
 
       <div class="nav__toggle" id="nav-toggle">

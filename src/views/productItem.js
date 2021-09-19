@@ -6,7 +6,7 @@ export const productItem = (product) => {
       <h3 class="laptop__title">${product.name}</h3>
       <span>${product.category}</span>
       <span>$${product.price}</span>
-      <a href="/laptop.html" class="button laptop__button">View More</a>
+      <a href="#detail__section" data-laptop-id="${product.id}" class="button laptop__button">View More</a>
   `
   return div
 }

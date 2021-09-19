@@ -56,6 +56,8 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin-top: 6rem;
+  margin-bottom: 10rem;
 }
 
 .home__img {
@@ -76,6 +78,7 @@ main {
   color: var(--color-dark);
   background-color: var(--color-yellow);
   padding: .75rem 1.5rem;
+  border: none;
   border-radius: 3rem;
   font-weight: var(--font-semi-bold);
   transition: .3s;
@@ -92,6 +95,7 @@ main {
 .laptops__list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .laptop__content {
@@ -101,7 +105,7 @@ main {
   padding: .25rem .75rem .75rem;
   box-shadow: 0px 8px 1px var(--color-neutral);
   border-radius: 1rem;
-  margin: .3rem;
+  margin: .5rem;
 }
 
 .laptop__img {
@@ -121,12 +125,14 @@ main {
   display: flex;
   padding: .5rem .625rem;
   border-radius: 1rem 0 1rem 0;
+  cursor: pointer;
 }
 
 .laptop__details {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 4rem;
 }
 
 .laptop__image {
@@ -165,6 +171,8 @@ main {
 @media screen and (min-width: 767px) {
   .home__container {
     padding: 4rem 0 2rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
   }
 }
 

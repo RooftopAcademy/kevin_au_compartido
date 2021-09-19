@@ -1,4 +1,5 @@
 import { productItem } from "../views/productItem.js";
+import { productDetail } from "../views/productDetail.js";
 
 export class UI {
   
@@ -6,4 +7,12 @@ export class UI {
     products.forEach(product => productListDOM.appendChild(productItem(product)))
   }
 
+  showProductDetail(DOMref, product) {
+    DOMref.innerHTML = ""
+    DOMref.appendChild(productDetail(product))
+  }
+
+  updateCart(DOMref, value) {
+    
+  }
 }
