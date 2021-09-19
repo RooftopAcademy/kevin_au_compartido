@@ -122,7 +122,7 @@ headerTemplate.innerHTML = `
 
       <div class="nav__cart" id="nav-cart">
         <i class="uil uil-shopping-cart-alt"></i>
-        <span class="cart__badge">0</span>
+        <span id="cart-badge" class="cart__badge">5</span>
       </div>
 
       <div class="nav__toggle" id="nav-toggle">
@@ -151,13 +151,18 @@ class Header extends HTMLElement {
 
     // ============ TOOGLE MENU ============
     const toggle = shadowRoot.getElementById('nav-toggle')
-    const navMenu = shadowRoot.getElementById('nav-menu')    
+    const navMenu = shadowRoot.getElementById('nav-menu')  
+    const cartBadge = shadowRoot.getElementById('cart-badge')
 
     toggle.addEventListener('click', () => navMenu.classList.toggle('show-menu'))
 
     // ============ REMOVE MENU ON NAVLINK CLICK ============
     const navLink = shadowRoot.querySelectorAll('.nav__link')
     navLink.forEach(el => el.addEventListener('click', () => navMenu.classList.remove('show-menu')))
+
+    // ============ SET CART COUNTER =========
+    let cartCounter = this.getAttribute('cart-count')
+    cartBadge.innerText = cartCounter
   }
 }
 
