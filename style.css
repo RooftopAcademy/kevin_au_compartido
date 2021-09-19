@@ -159,3 +159,18 @@ main {
   font-size: var(--font-big);
   margin-right: 4px;
 }
+
+/* ========== MEDIA QUERIES ========== */
+/* MEdium Devices */
+@media screen and (min-width: 767px) {
+  .home__container {
+    padding: 4rem 0 2rem;
+  }
+}
+
+/* Large Devices */
+@media screen and (min-width: 968px) {
+  .home__container {
+    flex-wrap: nowrap;
+  }
+}
