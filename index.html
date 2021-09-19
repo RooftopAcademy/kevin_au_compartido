@@ -16,12 +16,15 @@
     <script src="src/components/Header.js" defer></script>
     <script src="src/components/Footer.js" defer></script>
 
+    <!-- app.js that consume CLASS COMPONENTS -->
+    <script type="module" src="src/app.js"></script>
+
   </head>
   <body>
     <!-- HEADER -->
-    <header-component></header-component>
+    <header-component cart-count="0"></header-component>
 
-    <main>
+    <main id="content">
       <!-- HOME -->
       <section class="home">
         <div class="home__container">
@@ -34,10 +37,23 @@
             <p class="home__description">
               The new Alienware m15 Ryzen Edition laptop features AMD Ryzen 5000 series CPU and NVIDIA GeForce RTX 30-series graphics.
             </p>
-            <a href="/laptops.html" class="button">Shop Now</a>
+            <a href="#laptops__container" class="button">Shop Now</a>
           </div>
         </div>
       </section>
+
+      <!-- LIST PRODUCTS SECTION -->
+      <section id="laptops__container" class="laptops__container">
+        <h2 class="laptops__title">Featured Laptops</h2>  
+        <div class="laptops__list js-products-list">
+          <!-- JAVASCRIPT CONTENT -->
+        </div>
+      </section>
+
+      <!-- PRODUCT DETAIL -->
+      <div id="detail__section">
+        <!-- JAVASCRIPT CONTENT -->
+      </div>
     </main>
 
     <!-- FOOTER -->
