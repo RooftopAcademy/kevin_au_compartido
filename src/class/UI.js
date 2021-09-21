@@ -12,6 +12,17 @@ export class UI {
     DOMref.appendChild(productDetail(product))
   }
 
+  displayLoading(loaderDOM, state) {
+    state 
+      ? loaderDOM.classList.add("display") 
+      : loaderDOM.classList.remove("display")
+  }
+
+  showDetails(productDetailDOM, productId, products) {
+    const [product] = products.filter(p => p.id == productId)
+    this.showProductDetail(productDetailDOM, product)
+  }
+
   updateCart(DOMref, value) {
     
   }
