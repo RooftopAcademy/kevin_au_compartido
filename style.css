@@ -190,12 +190,12 @@ main {
   border: 5px solid #f3f3f3;
   border-top: 6px solid var(--color-yellow);
   border-radius: 100%;
-  visibility: hidden;
+  display: none;
   margin: auto;
   animation: spin 1s infinite linear;
 }
 #loading.display {
-  visibility: visible;
+  display: block;
 }
 @keyframes spin {
   from {
