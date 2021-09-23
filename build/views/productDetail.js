@@ -1,6 +1,0 @@
-export var productDetail = function (product) {
-    var section = document.createElement('section');
-    section.classList.add('laptop__details');
-    section.innerHTML = "\n  <div class=\"laptop__image\">\n    <img src=" + product.imgUrl + " alt=" + product.name + " />\n  </div>\n  <div class=\"laptop__description\">\n    <h2>" + product.name + "</h2>\n    <p class=\"laptop__description-item\">\n      <i class=\"uil uil-processor icon\"></i>Processor AMD Ryzen\u2122 7 5800H (8-Core, 20MB Total Cache, up to 4.4 GHz\n      Max Boost Clock)\n    </p>\n    <p class=\"laptop__description-item\"><i class=\"uil uil-processor icon\"></i>Laptop Windows 10 Home English</p>\n    <p class=\"laptop__description-item\"><i class=\"uil uil-sim-card icon\"></i>Videocard NVIDIA\u00AE GeForce RTX\u2122 3070 8GB GDDR6</p>\n    <p class=\"laptop__description-item\"><i class=\"uil uil-sim-card icon\"></i>Memory 16GB DDR4 3200MHz</p>\n    <p class=\"laptop__description-item\"><i class=\"uil uil-sim-card icon\"></i>Harddrive 1TB PCIe M.2 SSD</p>\n    <a href=\"#\" class=\"button add-cart\" data-laptop-id=\"" + product.id + "\">Add to Cart ($" + product.price + ")</a>\n  </div>\n  ";
-    return section;
-};
