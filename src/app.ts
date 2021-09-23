@@ -1,5 +1,5 @@
-import { UI } from './class/UI.js'
-import { Store } from './class/Store.js'
+import { UI } from './class/UI'
+import { Store } from './class/Store'
 import { IProduct } from './types/products'
 
 document.addEventListener("DOMContentLoaded" , async () => {
