@@ -1,5 +1,3 @@
-declare function require(path: string): any;
-
 import { UI } from './class/UI.js'
 // import { Store } from './class/Store.js'
 import { IProduct } from './types/products'
