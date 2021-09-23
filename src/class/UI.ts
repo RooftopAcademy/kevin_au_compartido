@@ -20,7 +20,7 @@ export class UI {
       : loaderDOM.classList.remove("display")
   }
 
-  showDetails(productDetailDOM: Element, productId: string, products: IProduct[]) {
+  showDetails(productDetailDOM: Element, productId: string | null, products: IProduct[]) {
     const [product] = products.filter(p => p.id == productId)
     this.showProductDetail(productDetailDOM, product)
   }
