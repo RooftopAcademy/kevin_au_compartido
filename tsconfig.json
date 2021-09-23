@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "es5",                     
+    "lib": ["DOM", "DOM.Iterable"],                                      
+    "module": "commonjs", 
+    "outDir": "./build",
+    "strict": true,
+  },
+  "include": ["./src"]
+}
