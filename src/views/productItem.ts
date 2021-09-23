@@ -1,4 +1,6 @@
-export const productItem = (product) => {
+import { IProduct } from "../types/products"
+
+export const productItem = (product: IProduct) => {
   const div = document.createElement('div')
   div.classList.add('laptop__content')
   div.innerHTML = `

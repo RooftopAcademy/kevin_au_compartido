@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es2015",
+    "lib": ["DOM", "DOM.Iterable", "es2015"],
+    "outDir": "./build",
+    "strict": true,
+    "removeComments": true,
+  },
+  "include": ["./src"]
+}
