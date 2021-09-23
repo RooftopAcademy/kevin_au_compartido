@@ -23,7 +23,8 @@ document.addEventListener("DOMContentLoaded" , async () => {
   ui.displayLoading(loadingDOM, false)
 
   // ADD EVENT LISTENER TO document
-  document.addEventListener('click' , function({target}: {target: any }) {
+  document.addEventListener('click' , function(e) {
+    const target = e.target as Element;
     // VIEW MORE BUTTON
     if(target && target.classList.contains('laptop__button')){
       ui.showDetails(productDetailDOM, target.getAttribute('data-laptop-id'), products)
