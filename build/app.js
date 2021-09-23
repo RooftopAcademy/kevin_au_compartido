@@ -35,11 +35,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { UI } from './class/UI.js';
+import { Store } from './class/Store.js';
 document.addEventListener("DOMContentLoaded", function () { return __awaiter(void 0, void 0, void 0, function () {
-    var ui, productListDOM, productDetailDOM, loadingDOM, res, products;
+    var store, ui, productListDOM, productDetailDOM, loadingDOM, res, products;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
+                store = new Store();
                 ui = new UI();
                 productListDOM = document.querySelector('.js-products-list');
                 productDetailDOM = document.querySelector('#detail__section');
@@ -60,6 +62,8 @@ document.addEventListener("DOMContentLoaded", function () { return __awaiter(voi
                     }
                     if (target && target.classList.contains('add-cart')) {
                         var product = products.filter(function (p) { return p.id == target.getAttribute('data-laptop-id'); })[0];
+                        store.getCart().add(product);
+                        console.log(store);
                     }
                 });
                 return [2];

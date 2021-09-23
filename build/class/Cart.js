@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Cart = void 0;
-var Cart = /** @class */ (function () {
+var Cart = (function () {
     function Cart() {
         this.products = [];
     }
@@ -15,4 +12,4 @@ var Cart = /** @class */ (function () {
     };
     return Cart;
 }());
-exports.Cart = Cart;
+export { Cart };

@@ -1,10 +1,10 @@
 import { UI } from './class/UI.js'
-// import { Store } from './class/Store.js'
+import { Store } from './class/Store.js'
 import { IProduct } from './types/products'
 
 document.addEventListener("DOMContentLoaded" , async () => {
   // OBJECTS
-  // const store = new Store()
+  const store = new Store()
   const ui = new UI()
 
   // DOM REF
@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded" , async () => {
     // ADD TO CART BUTTON
     if(target && target.classList.contains('add-cart')){
       const [product] = products.filter(p => p.id == target.getAttribute('data-laptop-id'))
-      // store.getCart().add(product)
-      // console.log(store)
+      store.getCart().add(product)
+      console.log(store)
       // ui.updateCart() // TODO
     }
   })
