@@ -1,10 +1,10 @@
 import { UI } from './class/UI.js'
-// import { Store } from './class/Store.js'
+import { Store } from './class/Store.js'
 import { IProduct } from './types/products'
 
 document.addEventListener("DOMContentLoaded" , async () => {
   // OBJECTS
-  // const store = new Store()
+  const store = new Store()
   const ui = new UI()
 
   // DOM REF
@@ -23,7 +23,8 @@ document.addEventListener("DOMContentLoaded" , async () => {
   ui.displayLoading(loadingDOM, false)
 
   // ADD EVENT LISTENER TO document
-  document.addEventListener('click' , function({target}: {target: any }) {
+  document.addEventListener('click' , function(e) {
+    const target = e.target as Element;
     // VIEW MORE BUTTON
     if(target && target.classList.contains('laptop__button')){
       ui.showDetails(productDetailDOM, target.getAttribute('data-laptop-id'), products)
@@ -31,8 +32,8 @@ document.addEventListener("DOMContentLoaded" , async () => {
     // ADD TO CART BUTTON
     if(target && target.classList.contains('add-cart')){
       const [product] = products.filter(p => p.id == target.getAttribute('data-laptop-id'))
-      // store.getCart().add(product)
-      // console.log(store)
+      store.getCart().add(product)
+      console.log(store)
       // ui.updateCart() // TODO
     }
   })
