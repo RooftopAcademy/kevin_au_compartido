@@ -43,7 +43,7 @@ export const ProductDetail: IProductDetail = {
 
       // Setear Evento
     } else {
-      $content!.innerHTML = '<section class="laptop__details">No se encontra el producto</section>'
+      $content!.innerHTML = '<section class="laptop__details">No se ha encontrado el producto</section>'
     }
   },
 }
