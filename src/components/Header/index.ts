@@ -43,12 +43,15 @@ export const Header: IHeader = {
       document.getElementById('nav-menu')!.classList.toggle('show-menu')
     })
     
-    document.getElementById('nav-cart')!.addEventListener('click', function() {
-      const $cartDOM = document.querySelector('.cart')
-      $cartDOM!.classList.contains('showCart')
-        ? this.hideCart()
-        : this.showCart()
-    }.bind(this))
+    document.getElementById('nav-cart')!
+      .addEventListener('click', 
+        () => {
+          const $cartDOM = document.querySelector('.cart')
+          $cartDOM!.classList.contains('showCart')
+            ? this.hideCart()
+            : this.showCart()
+        }
+      )
   },
   incrementCartBadge() {
     this.state.cartBadge++
