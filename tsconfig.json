@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "es2015",
+    "module": "CommonJS",
     "lib": ["DOM", "DOM.Iterable", "es2015"],
     "outDir": "./build",
     "strict": true,
     "removeComments": true,
+    "sourceMap": true
   },
   "include": ["./src/**/*.ts"]
 }
