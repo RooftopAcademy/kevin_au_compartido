@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded" , async () => {
   
   // HASH ROUTE EVENT
   window.addEventListener("hashchange", onRouteChanged)
-
+  
   // Handle Route
   function onRouteChanged() {
     const hash = window.location.hash.split('=')
