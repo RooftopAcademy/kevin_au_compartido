@@ -5,11 +5,13 @@ import { Footer } from './components/Footer'
 import { ProductList } from './components/ProductList'
 import { ProductDetail } from './components/ProductDetail'
 import { Notfound } from './components/Notfound'
+import { Cart } from './components/Cart'
 
 document.addEventListener("DOMContentLoaded" , async () => {
 
   Header.initialize()
   Home.initialize()
+  Cart.initialize()
   Footer.initialize()
 
   const res = await fetch('https://my-json-server.typicode.com/kevin-dev71/JSON-server/products')
@@ -36,6 +38,10 @@ document.addEventListener("DOMContentLoaded" , async () => {
         Notfound.initialize()
     }
   }
+
+  // DOM MANIPULATION
+  const $cartDOM = document.querySelector('.cart');
+  const $cartOverlay = document.querySelector('.cart-overlay');
 
   document.addEventListener('click', function(e) {
     const target = e.target as Element

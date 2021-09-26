@@ -1,4 +1,16 @@
-export const Header = {
+interface IHeader {
+  state : {
+    cartBadge: number
+  }
+  template: () => string
+  initialize: () => void
+  incrementCartBadge: () => void
+  updateCartBadgeUI: () => void
+  showCart: () => void
+  hideCart: () => void
+}
+
+export const Header: IHeader = {
   state : {
     cartBadge: 0
   },
@@ -36,9 +48,19 @@ export const Header = {
   },
   initialize() {
     document.getElementById('header')!.innerHTML = this.template()
+
     document.getElementById('js-nav-toggle')!.addEventListener('click', () => {
       document.getElementById('nav-menu')!.classList.toggle('show-menu')
     })
+    
+    document.getElementById('nav-cart')!.addEventListener('click', function() {
+      const $cartDOM = document.querySelector('.cart')
+      if($cartDOM!.classList.contains('showCart')){
+        this.hideCart()
+      } else {
+        this.showCart()
+      }
+    }.bind(this))
   },
   incrementCartBadge() {
     this.state.cartBadge++
@@ -46,5 +68,17 @@ export const Header = {
   },
   updateCartBadgeUI() {
     document.getElementById('cart-badge')!.textContent = this.state.cartBadge.toString()
+  },
+  showCart() {
+    const $cartDOM = document.querySelector('.cart')
+    const $cartOverlay = document.querySelector('.cart-overlay')
+    $cartOverlay!.classList.add('transparentBcg')
+    $cartDOM!.classList.add('showCart')
+  },
+  hideCart() {
+    const $cartDOM = document.querySelector('.cart')
+    const $cartOverlay = document.querySelector('.cart-overlay')
+    $cartOverlay!.classList.remove('transparentBcg')
+    $cartDOM!.classList.remove('showCart')
   }
 }
