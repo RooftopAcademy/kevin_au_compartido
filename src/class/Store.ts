@@ -1,4 +1,4 @@
-import { Cart } from './Cart.js'
+import { Cart } from './Cart'
 
 export class Store {
   cart: Cart

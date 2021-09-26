@@ -5,59 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rooftop - Onboarding</title>
+    <link rel="shortcut icon" href="https://cdna.iconscout.com/img/79c0bd1.svg" type="image/x-icon">
 
     <!-- UNICONS -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <!-- MY STYLES -->
     <link rel="stylesheet" href="style.css" />
+    <!-- HEADER STYLE -->
+    <link rel="stylesheet" href="src/components/Header/style.css">
+    <!-- FOOTER STYLES -->
+    <link rel="stylesheet" href="src/components/Footer/style.css">
 
-    <!-- HTML COMPONENTS -->
-    <script src="src/components/Header.js" defer></script>
-    <script src="src/components/Footer.js" defer></script>
-
-    <!-- app.js that consume CLASS COMPONENTS -->
-    <script type="module" src="build/app.js"></script>
+    <!-- app.js -->
+    <script src="build/app.bundle.js"></script>
 
   </head>
   <body>
     <!-- HEADER -->
-    <header-component cart-count="0"></header-component>
+    <header id="header"></header>
 
-    <main id="content">
-      <!-- HOME -->
-      <section class="home">
-        <div class="home__container">
-          <div class="home__img">
-            <img src="assets/img/alienware.png" alt="Alienware m15" />
-          </div>
-
-          <div class="home__data">
-            <h1 class="home__title">Gaming Laptops</h1>
-            <p class="home__description">
-              The new Alienware m15 Ryzen Edition laptop features AMD Ryzen 5000 series CPU and NVIDIA GeForce RTX 30-series graphics.
-            </p>
-            <a href="#laptops__container" class="button">Shop Now</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- LIST PRODUCTS SECTION -->
-      <section id="laptops__container" class="laptops__container">
-        <h2 class="laptops__title">Featured Laptops</h2>  
-        <div class="laptops__list js-products-list">
-          <!-- JAVASCRIPT CONTENT -->
-          <div id="loading"></div>
-        </div>
-      </section>
-
-      <!-- PRODUCT DETAIL -->
-      <div id="detail__section">
-        <!-- JAVASCRIPT CONTENT -->
-      </div>
-    </main>
+    <main id="content"></main>
 
     <!-- FOOTER -->
-    <footer-component></footer-component>
+    <footer id="footer"></footer>
   </body>
 </html>

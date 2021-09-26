@@ -1,0 +1,27 @@
+{
+  "name": "kevin_au_compartido",
+  "version": "1.0.0",
+  "description": "___\r ### Html and Css \r - Proof of concept in DOM manipulation implementing Class.\r - HTML Web Components implementation in the Header and Footer.\r - Some HTML and Css.",
+  "main": "webpack.config.js",
+  "dependencies": {},
+  "devDependencies": {
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.3",
+    "webpack": "^5.53.0",
+    "webpack-cli": "^4.8.0"
+  },
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RooftopAcademy/kevin_au_compartido.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RooftopAcademy/kevin_au_compartido/issues"
+  },
+  "homepage": "https://github.com/RooftopAcademy/kevin_au_compartido#readme"
+}

@@ -1,7 +1,7 @@
-import { productItem } from "../views/productItem.js";
-import { productDetail } from "../views/productDetail.js";
+import { productItem } from "../views/productItem";
+import { productDetail } from "../views/productDetail";
 
-import { IProduct } from "../types/products.js";
+import { IProduct } from "../types/products";
 
 export class UI {
   
