@@ -82,6 +82,7 @@ main {
   border-radius: 3rem;
   font-weight: var(--font-semi-bold);
   transition: .3s;
+  cursor: pointer;
 }
 
 .button:hover {

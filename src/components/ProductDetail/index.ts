@@ -42,6 +42,7 @@ export const ProductDetail: IProductDetail = {
       $content!.appendChild(this.template() as HTMLElement)
 
       // Setear Evento
+      
     } else {
       $content!.innerHTML = '<section class="laptop__details">No se ha encontrado el producto</section>'
     }

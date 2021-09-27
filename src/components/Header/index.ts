@@ -53,8 +53,8 @@ export const Header: IHeader = {
         }
       )
   },
-  incrementCartBadge() {
-    this.state.cartBadge++
+  setCartCount(count: number) {
+    this.state.cartBadge = count
     this.updateCartBadgeUI()
   },
   updateCartBadgeUI() {

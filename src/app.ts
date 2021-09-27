@@ -39,16 +39,27 @@ document.addEventListener("DOMContentLoaded" , async () => {
     }
   }
 
-  // DOM MANIPULATION
-  const $cartDOM = document.querySelector('.cart');
-  const $cartOverlay = document.querySelector('.cart-overlay');
-
   document.addEventListener('click', function(e) {
-    const target = e.target as Element
+    const target = e.target as HTMLElement
+    // ADD PRODUCT CLLICK EVENT
     if(target && target.classList.contains('add-cart')){
       e.preventDefault()
       const [product] = products.filter(p => p.id == target.getAttribute('data-laptop-id'))
-      Header.incrementCartBadge()
+      Cart.addProduct(product)
+      Header.setCartCount(Cart.state.products.length)
+    }
+
+    // CLEAR CART EVENT
+    if(target && target.classList.contains('clear-cart')) {
+      Cart.clearCart()
+      Header.setCartCount(Cart.state.products.length)
+    }
+
+    // REMOVE ITEM IN CART EVENT
+    if(target && target.classList.contains('remove-cart-item')) {
+      const id = target.dataset.id
+      Cart.removeItem(id)
+      Header.setCartCount(Cart.state.products.length)
     }
   })
 })
