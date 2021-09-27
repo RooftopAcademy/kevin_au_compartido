@@ -4,7 +4,7 @@ export interface IProduct {
   name: string
   category: string
   price: string
-  amount?: string
+  amount?: number
 }
 
 export interface IProductDetail {

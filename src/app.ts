@@ -46,20 +46,20 @@ document.addEventListener("DOMContentLoaded" , async () => {
       e.preventDefault()
       const [product] = products.filter(p => p.id == target.getAttribute('data-laptop-id'))
       Cart.addProduct(product)
-      Header.setCartCount(Cart.state.products.length)
+      Header.setCartCount(Cart.getQuantityOfProductsInCart())
     }
 
     // CLEAR CART EVENT
     if(target && target.classList.contains('clear-cart')) {
       Cart.clearCart()
-      Header.setCartCount(Cart.state.products.length)
+      Header.setCartCount(Cart.getQuantityOfProductsInCart())
     }
 
     // REMOVE ITEM IN CART EVENT
     if(target && target.classList.contains('remove-cart-item')) {
       const id = target.dataset.id
       Cart.removeItem(id)
-      Header.setCartCount(Cart.state.products.length)
+      Header.setCartCount(Cart.getQuantityOfProductsInCart())
     }
   })
 })

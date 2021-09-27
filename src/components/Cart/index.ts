@@ -29,12 +29,32 @@ export const Cart: ICart = {
     document.getElementById('close-cart')!.addEventListener('click', this.hideCart)
   },
   addProduct(product: IProduct) {
-    this.state.products.push(product)
-    this.updateCartUIOnAdd(product)
+    const indexOfProductInCart = this.state.products.findIndex(p => p.id === product.id)
+
+    let isNewProduct = false
+
+    if ( indexOfProductInCart === -1 ) {
+      this.state.products.push({...product, amount: 1})
+      isNewProduct = true
+      this.updateCartUIOnAdd(product, isNewProduct)
+    } else {
+      // const productInCart = this.state.products[indexOfProductInCart]
+      // const amount = productInCart.amount as number
+      // productInCart.amount = (amount + 1)
+      this.state.products[indexOfProductInCart].amount!++
+      this.updateCartUIOnAdd(this.state.products[indexOfProductInCart], isNewProduct)
+    }
   },
-  updateCartUIOnAdd(product: IProduct) {
+  updateCartUIOnAdd(product: IProduct, isNewProduct: boolean) {
     const $cart = document.querySelector('.cart-content') as HTMLElement
-    $cart.appendChild(CartItem.initialize(product))
+    if(isNewProduct) {
+      $cart.appendChild(CartItem.initialize(product))
+    } else {
+      const $cartItemAmount = document.querySelector(`.item-amount[data-id="${product.id}"]`) as HTMLParagraphElement
+      $cartItemAmount.innerText = product.amount!.toString()
+    }
+    // update total amount ui
+    this.updateTotalAmount()
   },
   hideCart() {
     const $cartDOM = document.querySelector('.cart')
@@ -46,6 +66,8 @@ export const Cart: ICart = {
     const $cart = document.querySelector('.cart-content') as HTMLElement
     this.state.products.length = 0
     $cart.innerHTML = 'Your Cart Is Empty'
+    // update total amount ui
+    this.updateTotalAmount()
   },
   removeItem(id) {
     this.state.products = this.state.products.filter(p => p.id !== id)
@@ -53,6 +75,17 @@ export const Cart: ICart = {
     const $cart = document.querySelector('.cart-content') as Node
     const $productToRemove = document.querySelector(`.remove-cart-item[data-id="${id}"]`)?.parentElement?.parentElement as Node
     $cart.removeChild($productToRemove)
+
+    // update total amount ui
+    this.updateTotalAmount()
+  },
+  updateTotalAmount() {
+    const $cartTotal = document.querySelector('.cart-total') as HTMLElement
+    const totalAmount = this.state.products.reduce((acc, cur) => (parseFloat(acc) + parseFloat(cur.price) * cur.amount!).toFixed(2), '0')
+    $cartTotal.innerText = totalAmount
+  },
+  getQuantityOfProductsInCart() {
+    return this.state.products.reduce((acc, p) => acc + p.amount!, 0)
   }
 }
 // document.getElementById('js-clear-cart')!.addEventListener('click', () => this.clearCart())
