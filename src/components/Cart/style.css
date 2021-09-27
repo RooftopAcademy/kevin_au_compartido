@@ -55,7 +55,7 @@
   margin: 1.5rem 0;
 }
 .cart-item img {
-  width: 75px;
+  width: 120px;
   height: 75px;
 }
 .cart-item h4 {
@@ -70,14 +70,27 @@
 .item-amount {
   text-align: center;
 }
-.remove-item {
-  color: grey;
+.remove-cart-item {
+  color: rgb(165, 59, 59);
   cursor: pointer;
 }
-.fa-chevron-up,
-.fa-chevron-down {
+.arrow-up,
+.arrow-down {
   color: black;
   cursor: pointer;
 }
 
 /*---------- End of Cart Item -------------------- */
+
+/* CART FOOTER| */
+
+.cart-footer {
+  margin-top: 2rem;
+  letter-spacing: 0.1rem;
+  text-align: center;
+}
+.cart-footer h3 {
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+

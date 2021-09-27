@@ -4,7 +4,7 @@ export interface IHeader {
   }
   template: () => string
   initialize: () => void
-  incrementCartBadge: () => void
+  setCartCount: (arg0: number) => void
   updateCartBadgeUI: () => void
   showCart: () => void
   hideCart: () => void
