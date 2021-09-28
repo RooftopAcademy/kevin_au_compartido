@@ -24,14 +24,14 @@ export const CartItem: ICartItem = {
       </div>
       <div>
           <i class="uil uil-angle-up arrow-up" data-id=${this.state.product.id}></i>
-          <p class="item-amount">${this.state.product.amount}</p>
+          <p class="item-amount" data-id=${this.state.product.id}>${this.state.product.amount}</p>
           <i class="uil uil-angle-down arrow-down" data-id=${this.state.product.id}></i>
       </div>
     `
     return div
   },
   initialize(product: IProduct) {
-    this.state.product = { ...product, amount: '1' }
+    this.state.product = { ...product, amount: 1 }
     return this.template()
   },
 }
