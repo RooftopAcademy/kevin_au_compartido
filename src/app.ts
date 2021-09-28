@@ -1,5 +1,11 @@
+// TS INTERFACES
 import { IProduct } from './types/products'
+// CONSTANTS
+import { path } from './constants/paths'
+import { DOM } from './constants/domElements'
+// DOM EVENT FUNCTIONS
 import { addProductToCart, clearCart, removeItemInCart } from './DOMEvents'
+// COMPONENTS
 import { Home } from './components/Home'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
@@ -8,18 +14,11 @@ import { ProductDetail } from './components/ProductDetail'
 import { Notfound } from './components/Notfound'
 import { Cart } from './components/Cart'
 
-// ROUTE PATHS
-enum path {
-  HOME = '#home',
-  PRODUCTS = '#products',
-  PRODUCT_DETAIL = '#product'
-}
-
 document.addEventListener("DOMContentLoaded" , async () => {
 
-  Header.initialize()
-  Home.initialize()
   Cart.initialize()
+  Header.initialize(DOM.$header)
+  Home.initialize()
   Footer.initialize()
 
   const res = await fetch('https://my-json-server.typicode.com/kevin-dev71/JSON-server/products')
@@ -49,6 +48,7 @@ document.addEventListener("DOMContentLoaded" , async () => {
 
   document.addEventListener('click', function(e) {
     const target = e.target as HTMLElement
+    console.log(target)
     if(!target) return;
     // ADD PRODUCT CLLICK EVENT
     if(target.classList.contains('js-add-cart')){
