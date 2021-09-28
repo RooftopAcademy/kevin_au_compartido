@@ -71,5 +71,15 @@ export const Header: IHeader = {
     const $cartOverlay = document.querySelector('.cart-overlay')
     $cartOverlay!.classList.remove('transparentBcg')
     $cartDOM!.classList.remove('showCart')
+  },
+  incrementBadgeByOne() {
+    this.state.cartBadge++
+    this.updateCartBadgeUI()
+  },
+  decrementBadgeByOne() {
+    if(this.state.cartBadge > 0) {
+      this.state.cartBadge--
+      this.updateCartBadgeUI()
+    }  
   }
 }
