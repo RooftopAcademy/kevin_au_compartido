@@ -8,6 +8,13 @@ import { ProductDetail } from './components/ProductDetail'
 import { Notfound } from './components/Notfound'
 import { Cart } from './components/Cart'
 
+// ROUTE PATHS
+enum path {
+  HOME = '#home',
+  PRODUCTS = '#products',
+  PRODUCT_DETAIL = '#product'
+}
+
 document.addEventListener("DOMContentLoaded" , async () => {
 
   Header.initialize()
@@ -23,15 +30,15 @@ document.addEventListener("DOMContentLoaded" , async () => {
   
   // Handle Route
   function onRouteChanged() {
-    const hash = window.location.hash.split('=')
+    const hash = window.location.hash.split('/')
     switch(hash[0]) {
-      case '#home': 
+      case path.HOME: 
         Home.initialize()
         break
-      case '#products': 
+      case path.PRODUCTS: 
         ProductList.initialize(products)
         break
-      case '#product-detail':
+      case path.PRODUCT_DETAIL:
         const product = products.filter(p => p.id == hash[1])
         ProductDetail.initialize(product)
         break
@@ -44,20 +51,20 @@ document.addEventListener("DOMContentLoaded" , async () => {
     const target = e.target as HTMLElement
     if(!target) return;
     // ADD PRODUCT CLLICK EVENT
-    if(target.classList.contains('add-cart')){
+    if(target.classList.contains('js-add-cart')){
       e.preventDefault()
       addProductToCart({target, products, Cart, Header})
       return;
     }
 
     // CLEAR CART EVENT
-    if(target.classList.contains('clear-cart')) {
+    if(target.classList.contains('js-clear-cart')) {
       clearCart({Cart, Header})
       return;
     }
 
     // REMOVE ITEM IN CART EVENT
-    if(target.classList.contains('remove-cart-item')) {
+    if(target.classList.contains('js-remove-cart-item')) {
       removeItemInCart({e, Cart, Header})
       return;
     }

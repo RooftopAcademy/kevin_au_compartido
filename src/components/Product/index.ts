@@ -8,7 +8,7 @@ export const Product = {
         <h3 class="laptop__title">${product.name}</h3>
         <span>${product.category}</span>
         <span>$${product.price}</span>
-        <a href="#product-detail=${product.id}" data-laptop-id="${product.id}" class="button laptop__button">View More</a>
+        <a href="#product/${product.id}" data-laptop-id="${product.id}" class="button laptop__button">View More</a>
       </div>
     `
   },

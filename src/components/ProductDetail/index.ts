@@ -28,7 +28,7 @@ export const ProductDetail: IProductDetail = {
       <p class="laptop__description-item"><i class="uil uil-sim-card icon"></i>Videocard NVIDIA® GeForce RTX™ 3070 8GB GDDR6</p>
       <p class="laptop__description-item"><i class="uil uil-sim-card icon"></i>Memory 16GB DDR4 3200MHz</p>
       <p class="laptop__description-item"><i class="uil uil-sim-card icon"></i>Harddrive 1TB PCIe M.2 SSD</p>
-      <a href="#" class="button add-cart" data-laptop-id="${product.id}">Add to Cart ($${product.price})</a>
+      <a href="#" class="button js-add-cart add-cart" data-laptop-id="${product.id}">Add to Cart ($${product.price})</a>
     </div>
     `
     return section

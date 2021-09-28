@@ -20,7 +20,7 @@ export const CartItem: ICartItem = {
       <div>
           <h4>${this.state.product.name}</h4>
           <h5>$${this.state.product.price}</h5>
-          <span class="remove-cart-item" data-id=${this.state.product.id}>remove</span>
+          <span class="remove-cart-item js-remove-cart-item" data-id=${this.state.product.id}>remove</span>
       </div>
       <div>
           <i class="uil uil-angle-up arrow-up" data-id=${this.state.product.id}></i>
