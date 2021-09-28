@@ -86,6 +86,26 @@ export const Cart: ICart = {
   },
   getQuantityOfProductsInCart() {
     return this.state.products.reduce((acc, p) => acc + p.amount!, 0)
+  },
+  incrementProductQuantity(id: string, target: HTMLElement) {
+    const product = this.state.products.find(p => p.id === id) as IProduct
+    const amount = product.amount!++
+    const pTag = target.nextElementSibling as HTMLParagraphElement
+    pTag.innerText = (amount + 1).toString()
+    this.updateTotalAmount()
+  },
+  decrementProductQuantity(id: string, target: HTMLElement){
+    const product = this.state.products.find(p => p.id === id) as IProduct
+    if( product.amount! > 0 ) {
+      const amount = product.amount!--
+      if(amount - 1 === 0) {
+        this.removeItem(id)
+        return;
+      }
+      const pTag = target.previousElementSibling as HTMLParagraphElement
+      pTag.innerText = (amount - 1).toString()
+      this.updateTotalAmount()
+    }
   }
 }
 // document.getElementById('js-clear-cart')!.addEventListener('click', () => this.clearCart())

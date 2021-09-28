@@ -34,4 +34,5 @@ export const CartItem: ICartItem = {
     this.state.product = { ...product, amount: 1 }
     return this.template()
   },
+
 }

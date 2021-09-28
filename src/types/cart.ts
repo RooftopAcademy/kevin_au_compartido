@@ -13,6 +13,8 @@ export interface ICart {
   removeItem: (arg: string | undefined) => void
   updateTotalAmount: () => void
   getQuantityOfProductsInCart: () => number
+  incrementProductQuantity: (id: string, target: HTMLElement) => void
+  decrementProductQuantity: (id: string, target: HTMLElement) => void
 }
 
 export interface ICartItem {

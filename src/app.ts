@@ -1,4 +1,5 @@
 import { IProduct } from './types/products'
+import { addProductToCart, clearCart, removeItemInCart } from './DOMEvents'
 import { Home } from './components/Home'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
@@ -41,27 +42,49 @@ document.addEventListener("DOMContentLoaded" , async () => {
 
   document.addEventListener('click', function(e) {
     const target = e.target as HTMLElement
+    if(!target) return;
     // ADD PRODUCT CLLICK EVENT
-    if(target && target.classList.contains('add-cart')){
+    if(target.classList.contains('add-cart')){
       e.preventDefault()
-      const [product] = products.filter(p => p.id == target.getAttribute('data-laptop-id'))
-      Cart.addProduct(product)
-      Header.setCartCount(Cart.getQuantityOfProductsInCart())
+      addProductToCart({target, products, Cart, Header})
+      return;
     }
 
     // CLEAR CART EVENT
-    if(target && target.classList.contains('clear-cart')) {
-      Cart.clearCart()
-      Header.setCartCount(Cart.getQuantityOfProductsInCart())
+    if(target.classList.contains('clear-cart')) {
+      clearCart({Cart, Header})
+      return;
     }
 
     // REMOVE ITEM IN CART EVENT
-    if(target && target.classList.contains('remove-cart-item')) {
-      const id = target.dataset.id
-      Cart.removeItem(id)
-      Header.setCartCount(Cart.getQuantityOfProductsInCart())
+    if(target.classList.contains('remove-cart-item')) {
+      removeItemInCart({e, Cart, Header})
+      return;
+    }
+
+    // INCREMENT CART ITEM QUANTITY
+    if(target.classList.contains('arrow-up')) {
+      const id = target.dataset.id as string
+      Cart.incrementProductQuantity(id, target)
+      Header.incrementBadgeByOne()
+      return;
+    }
+
+    // DECREMENT CART ITEM QUANTITY
+    if(target.classList.contains('arrow-down')) {
+      const id = target.dataset.id as string
+      Cart.decrementProductQuantity(id, target)
+      Header.decrementBadgeByOne()
+      return;
     }
   })
 })
 
 // Home.updateCart(Header.incrementCartBadge.bind(Header))
+// ROUTE
+  // const ROUTES = {
+  //   '#home': Home.initialize,
+  //   '#products': () => ProductList.initialize(products),
+  //   '#product-detail': (product: IProduct[]) => ProductDetail.initialize(product),
+  //   'default' : Notfound.initialize
+  // }

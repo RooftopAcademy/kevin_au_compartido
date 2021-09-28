@@ -8,4 +8,6 @@ export interface IHeader {
   updateCartBadgeUI: () => void
   showCart: () => void
   hideCart: () => void
+  incrementBadgeByOne: () => void
+  decrementBadgeByOne: () => void
 }
