@@ -23,8 +23,8 @@ export const Cart: ICart = {
     </div>
     `
   },
-  initialize() {
-    document.getElementById('cart-overlay')!.innerHTML = this.template()
+  initialize($cart) {
+    document.getElementById($cart)!.innerHTML = this.template()
 
     document.getElementById('close-cart')!.addEventListener('click', this.hideCart)
   },

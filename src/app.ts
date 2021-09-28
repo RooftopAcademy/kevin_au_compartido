@@ -16,10 +16,10 @@ import { Cart } from './components/Cart'
 
 document.addEventListener("DOMContentLoaded" , async () => {
 
-  Cart.initialize()
+  Cart.initialize(DOM.$cart)
   Header.initialize(DOM.$header)
-  Home.initialize()
-  Footer.initialize()
+  Home.initialize(DOM.$content)
+  Footer.initialize(DOM.$footer)
 
   const res = await fetch('https://my-json-server.typicode.com/kevin-dev71/JSON-server/products')
   const products: IProduct[] = await res.json()
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded" , async () => {
     const hash = window.location.hash.split('/')
     switch(hash[0]) {
       case path.HOME: 
-        Home.initialize()
+        Home.initialize(DOM.$content)
         break
       case path.PRODUCTS: 
         ProductList.initialize(products)
@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded" , async () => {
 
   document.addEventListener('click', function(e) {
     const target = e.target as HTMLElement
-    console.log(target)
     if(!target) return;
     // ADD PRODUCT CLLICK EVENT
     if(target.classList.contains('js-add-cart')){

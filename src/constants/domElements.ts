@@ -1,3 +1,6 @@
 export enum DOM {
-  $header = 'header'
+  $header = 'header',
+  $cart = 'cart-overlay',
+  $content = 'content',
+  $footer = 'footer',
 }

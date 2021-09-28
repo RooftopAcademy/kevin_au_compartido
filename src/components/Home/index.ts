@@ -20,8 +20,8 @@ export const Home = {
     </section>
   `
   },
-  initialize() {
-    document.querySelector('#content')!.innerHTML = this.template()
+  initialize($content : string) {
+    document.getElementById($content)!.innerHTML = this.template()
   },
 }
 

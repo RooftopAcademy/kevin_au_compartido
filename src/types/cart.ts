@@ -5,7 +5,7 @@ export interface ICart {
     products: IProduct[]
   }
   template: () => string
-  initialize: () => void
+  initialize: (arg0: string) => void
   addProduct: (arg0: IProduct) => void
   updateCartUIOnAdd: (product: IProduct, isNewProduct: boolean) => void
   hideCart: () => void
