@@ -27,6 +27,11 @@ export const Cart: ICart = {
     document.getElementById($cart)!.innerHTML = this.template()
 
     document.getElementById('close-cart')!.addEventListener('click', this.hideCart)
+    document.getElementById('cart-overlay')!.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement
+        target.id === 'cart-overlay' && this.hideCart()
+      }
+    )
   },
   addProduct(product: IProduct) {
     const indexOfProductInCart = this.state.products.findIndex(p => p.id === product.id)
