@@ -46,8 +46,8 @@ export const LoginForm: ILoginForm = {
     $loginForm.onsubmit = this.onSubmit.bind(this)
 
     // onInputChange
-    const $emailInput = $loginForm.elements['email'] as HTMLInputElement
-    const $passwordInput = $loginForm.elements['password'] as HTMLInputElement
+    const $emailInput = $loginForm.elements[0] as HTMLInputElement
+    const $passwordInput = $loginForm.elements[1] as HTMLInputElement
 
     $emailInput.addEventListener('keyup', this.handleChange.bind(this))
     $passwordInput.addEventListener('keyup', this.handleChange.bind(this))
