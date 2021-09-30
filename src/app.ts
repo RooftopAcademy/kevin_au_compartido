@@ -13,6 +13,7 @@ import { ProductList } from './components/ProductList'
 import { ProductDetail } from './components/ProductDetail'
 import { Notfound } from './components/Notfound'
 import { Cart } from './components/Cart'
+import { LoginForm } from './components/Login'
 
 document.addEventListener("DOMContentLoaded" , async () => {
 
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded" , async () => {
   Header.initialize(DOM.$header)
   Home.initialize(DOM.$content)
   Footer.initialize(DOM.$footer)
+  LoginForm.initialize()
 
   const res = await fetch('https://my-json-server.typicode.com/kevin-dev71/JSON-server/products')
   const products: IProduct[] = await res.json()
@@ -83,14 +85,8 @@ document.addEventListener("DOMContentLoaded" , async () => {
       Header.decrementBadgeByOne()
       return;
     }
+
+    // TODO: CLOSE LOGIN FORM ON CLICK ANYWHERE
+
   })
 })
-
-// Home.updateCart(Header.incrementCartBadge.bind(Header))
-// ROUTE
-  // const ROUTES = {
-  //   '#home': Home.initialize,
-  //   '#products': () => ProductList.initialize(products),
-  //   '#product-detail': (product: IProduct[]) => ProductDetail.initialize(product),
-  //   'default' : Notfound.initialize
-  // }

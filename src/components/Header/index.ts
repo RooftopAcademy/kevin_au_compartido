@@ -1,4 +1,5 @@
 import { IHeader } from '../../types/header'
+import { DOM } from '../../constants/domElements'
 
 export const Header: IHeader = {
   state : {
@@ -20,14 +21,14 @@ export const Header: IHeader = {
             <li class="nav__item">
                 <a href="#contact" class="nav__link">Contact us</a>
             </li>
-
-            <i class="uil uil-toggle-off change-theme" id="theme-button"></i>
           </ul>
         </div>
 
-        <div class="nav__cart" id="nav-cart">
-          <i class="uil uil-shopping-cart-alt"></i>
+        <div class="nav__cart">
+          <i class="uil uil-users-alt login-icon" id="login-button"></i>
+          <i id="nav-cart" class="uil uil-shopping-cart-alt"></i>
           <span id="cart-badge" class="cart__badge">${this.state.cartBadge}</span>
+          <div class="login__container showLoginForm" id="login__container"></div>
         </div>
 
         <div class="nav__toggle" id="js-nav-toggle">
@@ -52,6 +53,12 @@ export const Header: IHeader = {
             : this.showCart()
         }
       )
+
+    // Login Form Icon Event
+    document.getElementById('login-button')?.addEventListener('click', () => {
+      const $loginForm = document.getElementById(DOM.$loginContainer)
+      $loginForm!.classList.toggle('showLoginForm')
+    })
   },
   setCartCount(count: number) {
     this.state.cartBadge = count

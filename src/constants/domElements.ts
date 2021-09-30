@@ -3,4 +3,6 @@ export enum DOM {
   $cart = 'cart-overlay',
   $content = 'content',
   $footer = 'footer',
+  $loginContainer = 'login__container',
+  $loginForm = 'js-login__form',
 }
