@@ -36,8 +36,8 @@ export const Header: IHeader = {
       </nav>
       `
   },
-  initialize() {
-    document.getElementById('header')!.innerHTML = this.template()
+  initialize($header) {
+    document.getElementById($header)!.innerHTML = this.template()
 
     document.getElementById('js-nav-toggle')!.addEventListener('click', () => {
       document.getElementById('nav-menu')!.classList.toggle('show-menu')

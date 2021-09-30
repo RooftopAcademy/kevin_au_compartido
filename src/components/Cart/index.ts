@@ -18,15 +18,20 @@ export const Cart: ICart = {
       </div>
       <div class="cart-footer">
         <h3>your total: $ <span class="cart-total">0</span></h3>
-        <button id="js-clear-cart" class="clear-cart button">CLEAR CART</button>
+        <button id="js-clear-cart" class="js-clear-cart clear-cart button">CLEAR CART</button>
       </div>
     </div>
     `
   },
-  initialize() {
-    document.getElementById('cart-overlay')!.innerHTML = this.template()
+  initialize($cart) {
+    document.getElementById($cart)!.innerHTML = this.template()
 
     document.getElementById('close-cart')!.addEventListener('click', this.hideCart)
+    document.getElementById('cart-overlay')!.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement
+        target.id === 'cart-overlay' && this.hideCart()
+      }
+    )
   },
   addProduct(product: IProduct) {
     const indexOfProductInCart = this.state.products.findIndex(p => p.id === product.id)
@@ -73,7 +78,7 @@ export const Cart: ICart = {
     this.state.products = this.state.products.filter(p => p.id !== id)
     // clean in dom
     const $cart = document.querySelector('.cart-content') as Node
-    const $productToRemove = document.querySelector(`.remove-cart-item[data-id="${id}"]`)?.parentElement?.parentElement as Node
+    const $productToRemove = document.querySelector(`.js-remove-cart-item[data-id="${id}"]`)?.parentElement?.parentElement as Node
     $cart.removeChild($productToRemove)
 
     // update total amount ui

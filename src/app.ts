@@ -1,5 +1,11 @@
+// TS INTERFACES
 import { IProduct } from './types/products'
+// CONSTANTS
+import { path } from './constants/paths'
+import { DOM } from './constants/domElements'
+// DOM EVENT FUNCTIONS
 import { addProductToCart, clearCart, removeItemInCart } from './DOMEvents'
+// COMPONENTS
 import { Home } from './components/Home'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
@@ -10,10 +16,10 @@ import { Cart } from './components/Cart'
 
 document.addEventListener("DOMContentLoaded" , async () => {
 
-  Header.initialize()
-  Home.initialize()
-  Cart.initialize()
-  Footer.initialize()
+  Cart.initialize(DOM.$cart)
+  Header.initialize(DOM.$header)
+  Home.initialize(DOM.$content)
+  Footer.initialize(DOM.$footer)
 
   const res = await fetch('https://my-json-server.typicode.com/kevin-dev71/JSON-server/products')
   const products: IProduct[] = await res.json()
@@ -23,15 +29,15 @@ document.addEventListener("DOMContentLoaded" , async () => {
   
   // Handle Route
   function onRouteChanged() {
-    const hash = window.location.hash.split('=')
+    const hash = window.location.hash.split('/')
     switch(hash[0]) {
-      case '#home': 
-        Home.initialize()
+      case path.HOME: 
+        Home.initialize(DOM.$content)
         break
-      case '#products': 
+      case path.PRODUCTS: 
         ProductList.initialize(products)
         break
-      case '#product-detail':
+      case path.PRODUCT_DETAIL:
         const product = products.filter(p => p.id == hash[1])
         ProductDetail.initialize(product)
         break
@@ -44,20 +50,20 @@ document.addEventListener("DOMContentLoaded" , async () => {
     const target = e.target as HTMLElement
     if(!target) return;
     // ADD PRODUCT CLLICK EVENT
-    if(target.classList.contains('add-cart')){
+    if(target.classList.contains('js-add-cart')){
       e.preventDefault()
       addProductToCart({target, products, Cart, Header})
       return;
     }
 
     // CLEAR CART EVENT
-    if(target.classList.contains('clear-cart')) {
+    if(target.classList.contains('js-clear-cart')) {
       clearCart({Cart, Header})
       return;
     }
 
     // REMOVE ITEM IN CART EVENT
-    if(target.classList.contains('remove-cart-item')) {
+    if(target.classList.contains('js-remove-cart-item')) {
       removeItemInCart({e, Cart, Header})
       return;
     }

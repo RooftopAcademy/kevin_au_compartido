@@ -1,6 +1,6 @@
 export const Footer = {
-  initialize() {
-    document.getElementById('footer')!.innerHTML = this.template()
+  initialize($footer: string) {
+    document.getElementById($footer)!.innerHTML = this.template()
   },
   template() {
     return `

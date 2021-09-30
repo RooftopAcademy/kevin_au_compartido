@@ -3,7 +3,7 @@ export interface IHeader {
     cartBadge: number
   }
   template: () => string
-  initialize: () => void
+  initialize: (arg0: string) => void
   setCartCount: (arg0: number) => void
   updateCartBadgeUI: () => void
   showCart: () => void

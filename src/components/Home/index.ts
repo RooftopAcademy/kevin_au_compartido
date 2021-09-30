@@ -1,3 +1,5 @@
+import { path } from '../../constants/paths'
+
 export const Home = {
   template() {
     return `
@@ -12,14 +14,14 @@ export const Home = {
           <p class="home__description">
             The new Alienware m15 Ryzen Edition laptop features AMD Ryzen 5000 series CPU and NVIDIA GeForce RTX 30-series graphics.
           </p>
-          <a id="js-button-shop-now" href="#products" class="button">Shop Now</a>
+          <a id="js-button-shop-now" href="${path.PRODUCTS}" class="button">Shop Now</a>
         </div>
       </div>
     </section>
   `
   },
-  initialize() {
-    document.querySelector('#content')!.innerHTML = this.template()
+  initialize($content : string) {
+    document.getElementById($content)!.innerHTML = this.template()
   },
 }
 
