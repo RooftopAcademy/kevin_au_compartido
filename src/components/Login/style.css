@@ -57,3 +57,13 @@
 .form__login-label {
   font-size: .8rem;
 }
+
+.form__register-span {
+  font-size: .8rem;
+  margin-bottom: .8rem;
+  text-align: center;
+}
+
+.form__register-span:hover {
+  color: var(--color-yellow);
+}
