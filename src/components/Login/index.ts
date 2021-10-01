@@ -110,8 +110,9 @@ export const LoginForm: ILoginForm = {
     // onInputChange
     Array.from($loginForm.elements).forEach((e: Node) => {
       if ( e.nodeName === 'INPUT' ) {
-        if( (e as HTMLInputElement).type === 'text' ||  (e as HTMLInputElement).type === 'password')
-        e.addEventListener('keyup', this.handleChange.bind(this))
+        if( (e as HTMLInputElement).type === 'text' ||  (e as HTMLInputElement).type === 'password') {
+          e.addEventListener('keyup', this.handleChange.bind(this))
+        }
       }
     })
 
