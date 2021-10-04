@@ -124,7 +124,8 @@ export const LoginForm: ILoginForm = {
     e.preventDefault()
     // useLocalStorage.set('user', this.state)
     // Header.setUser(this.state.user)
-    console.log(this.state.user)
+    this.state.isRegisterMode ? console.log(this.state.user) : 
+    console.log({email: this.state.user.email, password: this.state.user.password})
   },
   handleChange(e) {
     e.preventDefault()
