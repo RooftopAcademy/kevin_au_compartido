@@ -1,0 +1,27 @@
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination {
+  display: flex;
+}
+
+.page-item {
+  text-decoration: none;
+  list-style: none;
+}
+
+.page-link {
+  cursor: pointer;
+  padding: .5rem;
+}
+
+.page-link:hover {
+  background-color: var(--color-yellow)
+}
+
+.page-item-active {
+  border-bottom: 2px solid black;
+}
