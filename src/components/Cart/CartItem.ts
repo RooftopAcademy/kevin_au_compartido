@@ -31,7 +31,8 @@ export const CartItem: ICartItem = {
     return div
   },
   initialize(product: IProduct) {
-    this.state.product = { ...product, amount: 1 }
+    const amount = product.amount ?? 1
+    this.state.product = { ...product, amount }
     return this.template()
   },
 

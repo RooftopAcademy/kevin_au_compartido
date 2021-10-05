@@ -1,9 +1,11 @@
 import { IAddProductToCartEvent, IClearCartEvent, IRemoveItemInCartEvent } from "../types/DOMEvents"
+import useLocalStorage from "../utils/useLocalStorage"
 
 export const addProductToCart = (params: IAddProductToCartEvent) => {
   const { target, products, Cart, Header } = params
   const [product] = products.filter(p => p.id == target.getAttribute('data-laptop-id'))
   Cart.addProduct(product)
+  useLocalStorage.set('_cart_', JSON.stringify(Cart.state.products))
   Header.setCartCount(Cart.getQuantityOfProductsInCart())
 }
 

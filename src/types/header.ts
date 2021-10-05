@@ -1,11 +1,11 @@
-import { IUser } from "./user";
+import { ICart } from "./cart";
 
 export interface IHeader {
   state : {
     cartBadge: number
   }
   template: () => string
-  initialize: (arg0: string) => void
+  initialize: (arg0: string, arg1: ICart) => void
   setCartCount: (arg0: number) => void
   updateCartBadgeUI: () => void
   showCart: () => void
