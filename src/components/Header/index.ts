@@ -1,4 +1,5 @@
-import { ICart } from './../../types/cart';
+/* eslint-disable no-plusplus */
+/* eslint-disable no-unused-expressions */
 import { IHeader } from '../../types/header'
 import { DOM } from '../../constants/domElements'
 

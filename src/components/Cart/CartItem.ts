@@ -1,4 +1,3 @@
-import { Product } from './../Product/index';
 import { ICartItem } from "../../types/cart"
 import { IProduct } from "../../types/products"
 

@@ -26,13 +26,12 @@ document.addEventListener("DOMContentLoaded" , async () => {
   const res = await fetch('https://my-json-server.typicode.com/kevin-dev71/JSON-server/products')
   const products: IProduct[] = await res.json()
   
-  // HASH ROUTE EVENT
-  window.addEventListener("hashchange", onRouteChanged)
-  
   // Handle Route
   function onRouteChanged() {
-    const hash = window.location.hash.split('/')
-    switch(hash[0]) {
+    const [paths, productID] = window.location.hash.split('/')
+    const product = products.filter(p => p.id === productID)
+
+    switch(paths) {
       case path.HOME: 
         Home.initialize(DOM.$content)
         break
@@ -40,7 +39,6 @@ document.addEventListener("DOMContentLoaded" , async () => {
         ProductList.initialize(products)
         break
       case path.PRODUCT_DETAIL:
-        const product = products.filter(p => p.id == hash[1])
         ProductDetail.initialize(product)
         break
       default:
@@ -48,7 +46,11 @@ document.addEventListener("DOMContentLoaded" , async () => {
     }
   }
 
-  document.addEventListener('click', function(e) {
+  // HASH ROUTE EVENT
+  window.addEventListener("hashchange", onRouteChanged)
+
+  // GLOBAL EVENTS
+  function globalEvents(e: Event) {
     const target = e.target as HTMLElement
     if(!target) return;
     // ADD PRODUCT CLLICK EVENT
@@ -83,10 +85,11 @@ document.addEventListener("DOMContentLoaded" , async () => {
       const id = target.dataset.id as string
       Cart.decrementProductQuantity(id, target)
       Header.decrementBadgeByOne()
-      return;
     }
 
     // TODO: CLOSE LOGIN FORM ON CLICK ANYWHERE
 
-  })
+  }
+
+  document.addEventListener('click', globalEvents)
 })
