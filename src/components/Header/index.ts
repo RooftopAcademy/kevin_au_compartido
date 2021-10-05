@@ -1,3 +1,4 @@
+import { ICart } from './../../types/cart';
 import { IHeader } from '../../types/header'
 import { DOM } from '../../constants/domElements'
 
@@ -37,7 +38,8 @@ export const Header: IHeader = {
       </nav>
       `
   },
-  initialize($header) {
+  initialize($header, Cart) {
+    this.state.cartBadge = Cart.getQuantityOfProductsInCart()
     document.getElementById($header)!.innerHTML = this.template()
 
     document.getElementById('js-nav-toggle')!.addEventListener('click', () => {

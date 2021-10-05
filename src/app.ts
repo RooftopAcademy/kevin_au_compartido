@@ -18,7 +18,7 @@ import { LoginForm } from './components/Login'
 document.addEventListener("DOMContentLoaded" , async () => {
 
   Cart.initialize(DOM.$cart)
-  Header.initialize(DOM.$header)
+  Header.initialize(DOM.$header, Cart)
   Home.initialize(DOM.$content)
   Footer.initialize(DOM.$footer)
   LoginForm.initialize()

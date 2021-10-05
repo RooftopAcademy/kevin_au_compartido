@@ -3,10 +3,10 @@ import { ILocalStorage } from "../types/localstorage"
 const useLocalStorage: ILocalStorage = {  
   get (key) {
     const value = window.localStorage.getItem(key)
-    return value ? JSON.parse(value) : null
+    return value ? value : null
   },
-  set(key, value) {  
-    window.localStorage.setItem(key, JSON.stringify(value))
+  set(key, value) {
+    window.localStorage.setItem(key, value)
   },
   delete(key) {
     window.localStorage.removeItem(key)
