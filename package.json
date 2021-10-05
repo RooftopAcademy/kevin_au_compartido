@@ -3,12 +3,21 @@
   "version": "1.0.0",
   "description": "___\r ### Html and Css \r - Proof of concept in DOM manipulation implementing Class.\r - HTML Web Components implementation in the Header and Footer.\r - Some HTML and Css.",
   "main": "webpack.config.js",
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint": "^7.32.0",
+    "prettier": "^2.4.1",
     "ts-loader": "^9.2.6",
     "typescript": "^4.4.3",
-    "webpack": "^5.53.0",
-    "webpack-cli": "^4.8.0"
+    "webpack-cli": "^4.8.0",
+    "webpack": "^5.53.0"
   },
   "scripts": {
     "build": "webpack"

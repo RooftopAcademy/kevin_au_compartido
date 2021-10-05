@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable no-plusplus */
 import { ICart } from "../../types/cart"
 import { IProduct } from "../../types/products"
 import useLocalStorage from "../../utils/useLocalStorage"
@@ -34,6 +36,7 @@ export const Cart: ICart = {
     document.getElementById('close-cart')!.addEventListener('click', this.hideCart)
     document.getElementById('cart-overlay')!.addEventListener('click', (e) => {
         const target = e.target as HTMLElement
+        // eslint-disable-next-line no-unused-expressions
         target.id === 'cart-overlay' && this.hideCart()
       }
     )

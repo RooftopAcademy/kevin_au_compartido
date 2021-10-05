@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { ICart } from "./cart";
 
 export interface IHeader {
