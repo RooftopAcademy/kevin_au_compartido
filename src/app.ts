@@ -5,6 +5,8 @@ import { path } from './constants/paths'
 import { DOM } from './constants/domElements'
 // DOM EVENT FUNCTIONS
 import { addProductToCart, clearCart, removeItemInCart } from './DOMEvents'
+// FIREBASE
+import { getProductsService } from './firebase'
 // COMPONENTS
 import { Home } from './components/Home'
 import { Header } from './components/Header'
@@ -15,6 +17,7 @@ import { Notfound } from './components/Notfound'
 import { Cart } from './components/Cart'
 import { LoginForm } from './components/Login'
 
+
 document.addEventListener("DOMContentLoaded" , async () => {
 
   Cart.initialize(DOM.$cart)
@@ -23,8 +26,7 @@ document.addEventListener("DOMContentLoaded" , async () => {
   Footer.initialize(DOM.$footer)
   LoginForm.initialize()
 
-  const res = await fetch('https://my-json-server.typicode.com/kevin-dev71/JSON-server/products')
-  const products: IProduct[] = await res.json()
+  const products: IProduct[] = await getProductsService()
   
   // Handle Route
   function onRouteChanged() {
