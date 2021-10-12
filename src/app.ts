@@ -18,8 +18,6 @@ import { Cart } from './components/Cart'
 import { LoginForm } from './components/Login'
 // HELPERS AND UTILS
 import { useAuth } from './helpers/useAuth'
-import { sortParamsType } from './types/sort'
-import { Products } from './helpers/sort'
 
 export const { signup, getCurrentUser } = useAuth()
 
