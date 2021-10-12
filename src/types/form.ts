@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { IHeader } from "./header";
 
 export interface ILoginForm {
@@ -5,7 +6,7 @@ export interface ILoginForm {
     user: {
       email: string
       password: string
-      username: string
+      name: string
     },
     isRegisterMode: boolean
   }

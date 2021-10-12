@@ -5,6 +5,7 @@ export interface IProduct {
   category: string
   price: string
   amount?: number
+  [key: string]: string | number | undefined
 }
 
 export interface IProductDetail {

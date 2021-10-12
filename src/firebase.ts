@@ -1,34 +1,26 @@
-import { initializeApp } from "firebase/app"
+import { initializeApp } from 'firebase/app'
 import { 
   getFirestore,
   collection,
   addDoc,
   getDocsFromServer
-} from "firebase/firestore"
+} from 'firebase/firestore'
 
-import firebaseConfig from "./config" // your private firebase apikey
+import firebaseConfig from './config' // your private firebase apikey
 // TYPES
-import { IProduct } from "./types/products"
-import { IUser } from "./types/user"
+import { IProduct } from './types/products'
+import { IUser } from './types/user'
 
 
 // Initialize Firebase
 initializeApp(firebaseConfig)
-
 const db = getFirestore()
 
-export const createUserService = async (user: IUser) => {
-  try {
-    const docRef = await addDoc(collection(db, "users"), user);
-    console.log("Document written with ID: ", docRef.id);
-  } catch (e) {
-    console.error("Error adding document: ", e)
-  }
-}
+// PRODUCTS SERVICES
 
 export const createProductService = async (product: IProduct) => {
   try {
-    const docRef = await addDoc(collection(db, "products"), product);
+    const docRef = await addDoc(collection(db, "products"), product)
     console.log("Document written with ID: ", docRef.id)
   } catch (e) {
     console.error("Error adding document: ", e)
@@ -42,4 +34,15 @@ export const getProductsService = async () => {
     products.push(doc.data() as IProduct)
   })
   return products
+}
+
+// AUTHENTICATION SERVICES
+type createUserServiceFunc = (user: IUser) => Promise<IUser>
+const createUserService: createUserServiceFunc  = async (user) => {
+    const docRef = await addDoc(collection(db, "users"), user)
+    return ({...user, id: docRef.id})
+}
+
+export const auth = {
+  createUserService
 }

@@ -16,7 +16,12 @@ import { ProductDetail } from './components/ProductDetail'
 import { Notfound } from './components/Notfound'
 import { Cart } from './components/Cart'
 import { LoginForm } from './components/Login'
+// HELPERS AND UTILS
+import { useAuth } from './helpers/useAuth'
+import { sortParamsType } from './types/sort'
+import { Products } from './helpers/sort'
 
+export const { signup, getCurrentUser } = useAuth()
 
 document.addEventListener("DOMContentLoaded" , async () => {
 
@@ -95,3 +100,66 @@ document.addEventListener("DOMContentLoaded" , async () => {
 
   document.addEventListener('click', globalEvents)
 })
+
+const sortParams:sortParamsType = {
+  price: 1,
+  category: 1,
+  name: 1,
+  id: 1
+}
+
+const products: IProduct[] = [
+  {
+      "id": "1",
+      "imgUrl": "assets/img/alienware4.png",
+      "name": "Alienware m15",
+      "category": "Laptop",
+      "price": "999.99"
+  },
+  {
+      "id": "2",
+      "imgUrl": "assets/img/alienware3.png",
+      "name": "Alienware R4",
+      "category": "Gaming",
+      "price": "1399.89"
+  },
+  {
+      "id": "3",
+      "imgUrl": "assets/img/alienware2.png",
+      "name": "Alienware 17",
+      "category": "Gaming",
+      "price": "1299.89"
+  },
+  {
+      "id": "4",
+      "imgUrl": "assets/img/alienware4.png",
+      "name": "Alienware Special",
+      "category": "Laptop",
+      "price": "599.99"
+  },
+  {
+      "id": "5",
+      "imgUrl": "assets/img/alienware3.png",
+      "name": "Alienware 2021",
+      "category": "Laptop",
+      "price": "1799.89"
+  },
+  {
+      "id": "6",
+      "imgUrl": "assets/img/alienware6.png",
+      "name": "Alienware Desktop",
+      "category": "Desktop",
+      "price": "1899.89"
+  },
+  {
+      "id": "7",
+      "imgUrl": "assets/img/alienware7.png",
+      "name": "Alienware Kit",
+      "category": "Desktop",
+      "price": "899.89"
+  }
+]
+
+const { products: productsList} = Products(products)
+console.log(productsList.getMappedProductsByKey(sortParams))
+console.log(productsList.getMappedProductsByCategory())
