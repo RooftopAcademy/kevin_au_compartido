@@ -21,6 +21,9 @@ module.exports = {
         ts: "never",
       },
     ],
+    "@typescript-eslint/no-unused-vars": [
+      "error"
+    ]
   },
   settings: {
     'import/resolver': {

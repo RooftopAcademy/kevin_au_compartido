@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 export const Pagination = {
   state: {
     pageNumbers: [] as number[],

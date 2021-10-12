@@ -16,7 +16,10 @@ import { ProductDetail } from './components/ProductDetail'
 import { Notfound } from './components/Notfound'
 import { Cart } from './components/Cart'
 import { LoginForm } from './components/Login'
+// HELPERS AND UTILS
+import { useAuth } from './helpers/useAuth'
 
+export const { signup, getCurrentUser } = useAuth()
 
 document.addEventListener("DOMContentLoaded" , async () => {
 
@@ -95,3 +98,10 @@ document.addEventListener("DOMContentLoaded" , async () => {
 
   document.addEventListener('click', globalEvents)
 })
+
+// const sortParams:sortParamsType = {
+//   price: 1,
+//   category: 1,
+//   name: 1,
+//   id: 1
+// }

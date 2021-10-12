@@ -1,14 +1,13 @@
 import { DOM } from '../../constants/domElements'
 import { ILoginForm } from '../../types/form'
-import useLocalStorage from '../../utils/useLocalStorage'
-import { Header } from '../Header'
+import { signup, getCurrentUser } from '../../app'
 
 export const LoginForm: ILoginForm = {
   state: {
     user : {
       email: '',
       password: '',
-      username: ''
+      name: ''
     },
     isRegisterMode: false
   },
@@ -41,14 +40,14 @@ export const LoginForm: ILoginForm = {
   },
   registerInputs() {
     return `
-      <label class="form__login-label" for="username"><b>Username</b></label>
+      <label class="form__login-label" for="name"><b>Name</b></label>
       <input 
         class="form__login-input"
         type="text"
-        placeholder="Username"
-        name="username"
+        placeholder="Name"
+        name="name"
         autocomplete="off"
-        value="${this.state.user.username}"
+        value="${this.state.user.name}"
         required
       >
 
@@ -120,17 +119,21 @@ export const LoginForm: ILoginForm = {
     const $registerSpan = document.getElementById('form__resigster-span') as HTMLElement
     $registerSpan.addEventListener('click', this.setRegisterMode.bind(this))
   },
-  onSubmit(e) {
+  async onSubmit(e) {
     e.preventDefault()
     // useLocalStorage.set('user', this.state)
     // Header.setUser(this.state.user)
-    this.state.isRegisterMode ? console.log(this.state.user) : 
-    console.log({email: this.state.user.email, password: this.state.user.password})
+    if ( this.state.isRegisterMode ) {
+      await signup(this.state.user)
+      console.log(getCurrentUser())
+    } else {
+      console.log({email: this.state.user.email, password: this.state.user.password})
+    }
   },
   handleChange(e) {
     e.preventDefault()
-    let key: 'password' | 'email' = (<HTMLInputElement>e.target).name as 'password' | 'email'
-    let value = (<HTMLInputElement>e.target).value
+    const key: 'password' | 'email' | 'name' = (<HTMLInputElement>e.target).name as 'password' | 'email' | 'name'
+    const { value } = <HTMLInputElement>e.target
     this.state.user[key] = value
   }
 }
