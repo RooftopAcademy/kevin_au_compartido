@@ -81,7 +81,7 @@ export const LoginForm: ILoginForm = {
   renderForm() {
     return `
       <form id="${DOM.$loginForm}" class="form__login-container">
-        <h5>Login</h5>
+        <h5>${this.state.isRegisterMode ? 'Register' : 'Login'}</h5>
 
         ${this.state.isRegisterMode ? this.registerInputs() : this.loginInputs()}
 

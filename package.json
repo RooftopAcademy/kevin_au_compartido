@@ -4,8 +4,10 @@
   "description": "___\r ### Html and Css \r - Proof of concept in DOM manipulation implementing Class.\r - HTML Web Components implementation in the Header and Footer.\r - Some HTML and Css.",
   "main": "webpack.config.js",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "firebase": "^9.1.1"
+    "firebase": "^9.1.1",
+    "nodemon": "^2.0.13"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
