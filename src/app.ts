@@ -23,13 +23,13 @@ export const { signup, getCurrentUser } = useAuth()
 
 document.addEventListener("DOMContentLoaded" , async () => {
 
+  const products: IProduct[] = await getProductsService()
+
   Cart.initialize(DOM.$cart)
   Header.initialize(DOM.$header, Cart)
   Home.initialize(DOM.$content)
   Footer.initialize(DOM.$footer)
   LoginForm.initialize()
-
-  const products: IProduct[] = await getProductsService()
   
   // Handle Route
   function onRouteChanged() {

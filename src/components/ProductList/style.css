@@ -1,0 +1,50 @@
+.laptops-filter__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.laptops-filter__select {
+	 border: 0;
+	 outline: 0;
+	 font: inherit;
+	 width: 15em;
+	 height: 3em;
+	 padding: 0 1em 0 0.5em;
+	 color: var(--color-dark);
+	 border-radius: 0.25em;
+	 box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+	 cursor: pointer;
+}
+ .laptops-filter__select option {
+	 color: var(--color-dark);
+	 background-color: #e0d7de;
+}
+ .laptops-filter__select:focus {
+	 outline: none;
+}
+
+.laptops-list__main {
+  display: flex;
+}
+
+.laptops-filter__aside {
+  border-right: 2px solid #bbb;
+  border-radius: 5px;
+  width: 15%;
+}
+
+.laptops-filter__aside-category {
+  display: block;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.laptops-filter__aside-category:hover {
+  font-weight: bold;
+  color: var(--color-yellow);
+}
+
+.laptops__list {
+  width: 70%;
+}
