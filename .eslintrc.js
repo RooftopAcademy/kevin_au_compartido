@@ -9,7 +9,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  plugins: ["@typescript-eslint", "prettier"],
+  plugins: ["@typescript-eslint", "prettier", "html"],
   rules: {
     "no-console": "off",
     "import/prefer-default-export": "off",
