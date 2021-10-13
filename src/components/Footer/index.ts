@@ -1,3 +1,5 @@
+import './style.css'
+
 export const Footer = {
   initialize($footer: string) {
     document.getElementById($footer)!.innerHTML = this.template()

@@ -2,7 +2,7 @@ import { Products } from "../../helpers/sort"
 import { IProduct } from "../../types/products"
 import { Pagination } from "../Pagination"
 import { Product } from "../Product"
-
+import './style.css'
 
 export const ProductList = {
   state : {

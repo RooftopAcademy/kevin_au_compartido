@@ -5,6 +5,8 @@ import { IProduct } from "../../types/products"
 import useLocalStorage from "../../utils/useLocalStorage"
 import { CartItem } from "./CartItem"
 
+import './style.css'
+
 export const Cart: ICart = {
   state: {
     products: [],

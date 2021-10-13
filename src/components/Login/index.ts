@@ -2,6 +2,8 @@ import { DOM } from '../../constants/domElements'
 import { ILoginForm } from '../../types/form'
 import { signup, getCurrentUser } from '../../app'
 
+import './style.css'
+
 export const LoginForm: ILoginForm = {
   state: {
     user : {

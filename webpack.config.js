@@ -7,15 +7,32 @@ module.exports = {
     "app.bundle": './src/app.ts'
   },
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, './public/assets/js'),
     filename: '[name].js',
   },
+  devServer: {
+    port: 8080,
+    historyApiFallback: true,
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    compress: true,
+    devMiddleware: {
+      writeToDisk: true,
+    }
+  },
   module: {
-    rules: [{
-      test: /\.ts$/,
-      use: 'ts-loader',
-      exclude: /node_modules/,
-    }],
+    rules: [
+      {
+        test: /\.ts$/,
+        use: 'babel-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      }
+    ],
   },
   resolve: {
     extensions: ['.js', '.ts']

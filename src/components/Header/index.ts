@@ -3,6 +3,8 @@
 import { IHeader } from '../../types/header'
 import { DOM } from '../../constants/domElements'
 
+import './style.css'
+
 export const Header: IHeader = {
   state : {
     cartBadge: 0
