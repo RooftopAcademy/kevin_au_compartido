@@ -23,5 +23,5 @@
 }
 
 .page-item-active {
-  border-bottom: 2px solid black;
+  background-color: var(--color-yellow)
 }

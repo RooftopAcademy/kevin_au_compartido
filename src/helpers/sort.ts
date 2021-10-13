@@ -35,8 +35,8 @@ export const Products = (listOfProducts: IProduct[]) => {
 
     if(listOfProducts.length > 0) {
       Object.keys(params).forEach(key => {
-        const arrByKey = sortByKey({arr: listOfProducts, key, dir: params[key]})
-        mappedProductsByKey.set(key, arrByKey)
+          const arrByKey = sortByKey({arr: listOfProducts, key, dir: params[key]})
+          mappedProductsByKey.set(key, arrByKey)
       })
     }
     

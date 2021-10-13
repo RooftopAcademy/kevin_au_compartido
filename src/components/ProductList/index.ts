@@ -1,3 +1,4 @@
+import { Products } from "../../helpers/sort"
 import { IProduct } from "../../types/products"
 import { Pagination } from "../Pagination"
 import { Product } from "../Product"
@@ -10,14 +11,34 @@ export const ProductList = {
     paginate: {
       currentPage:1,
       productsPerPage: 3
-    }
+    },
+    categories: [] as string[]
   },
   template() {
     return `
       <section id="laptops__container" class="laptops__container">
-        <h2 class="laptops__title">Featured Laptops</h2>  
-        <div class="laptops__list js-products-list">
-        ${this.state.paginatedProducts.map(p => Product.initialize(p)).join('')}
+        <h2 class="laptops__title">Featured Laptops</h2>
+        <div class="laptops-filter__container">
+        <select class="laptops-filter__select">
+          <option value="" disabled selected>-- Sort By --</option>
+          <option value="price_asc">Lowest Price First</option>
+          <option value="price_desc">Higher Price First</option>
+          <option value="name_asc">A - Z</option>
+          <option value="name_desc">Z - A</option>
+        </select>
+        </div>
+        <div class="laptops-list__main">
+          <div class="laptops-filter__aside">
+            <h4>Categories</h4>
+            ${this.state.categories.map(category => 
+              `<span class="laptops-filter__aside-category">${category}</span>`
+            ).join('')}
+            <h4>Filters</h4>
+            <span class="laptops-filter__aside-category">Under 1000$</span>
+          </div>
+          <div class="laptops__list js-products-list">
+            ${this.state.paginatedProducts.map(p => Product.initialize(p)).join('')}
+          </div>
         </div>
       </section>
       ${Pagination.initialize({
@@ -30,7 +51,9 @@ export const ProductList = {
   initialize(products: IProduct[] = []) {
     this.state.products = []
     this.state.products.push(...products)
-    
+    const {products : productsList} = Products(this.state.products)
+    const productsByCategoryMap = productsList.getMappedProductsByCategory()
+    this.state.categories = Array.from(productsByCategoryMap.keys())
     this.updateUI()
   },
   paginate() {
