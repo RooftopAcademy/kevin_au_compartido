@@ -1,7 +1,7 @@
 import { IProduct } from "../types/products"
-import { sortParamsType } from "../types/sort"
+import { IMappedProducts, ISelectValues, sortParamsType } from "../types/sort"
 
-export const Products = (listOfProducts: IProduct[]) => {
+export const Products = (listOfProducts: IProduct[]): IMappedProducts => {
 
   const mappedProductsByKey: Map<string, IProduct[]> = new Map()
   const mappedProductsByCategory: Map<string, IProduct[]> = new Map()
@@ -43,7 +43,7 @@ export const Products = (listOfProducts: IProduct[]) => {
     return mappedProductsByKey
   }
 
-  const getMappedProductsByCategory = () => {
+  const mapProductsByCategory = () => {
 
     const categorys: string[] = []
 
@@ -55,14 +55,30 @@ export const Products = (listOfProducts: IProduct[]) => {
       mappedProductsByCategory.set(category, listOfProducts.filter(product => product.category === category))
     })
 
+    // add products under 1000$
+    const productsUnder1000 = listOfProducts.filter(p => +p.price <= 1000)
+    mappedProductsByCategory.set('Under 1000$' , productsUnder1000)
+
     return mappedProductsByCategory
   }
 
-  return {
-    products: {
-      get: () => listOfProducts,
-      getMappedProductsByKey: (params:sortParamsType) => getMappedProductsByKey(params),
-      getMappedProductsByCategory
+  const sortBySelect = (arr: IProduct[], type: string) => {
+    const selectValuesUI: ISelectValues = {
+      'price_asc' : () => arr.sort((a, b) => +a.price - +b.price),
+      'price_desc' : () => arr.sort((a, b) => +b.price - +a.price),
+      'name_asc' : () => arr.sort((a, b) => a.name.localeCompare(b.name)),
+      'name_desc' : () => arr.sort((a, b) => b.name.localeCompare(a.name))
     }
+    return selectValuesUI[type]()
+  }
+
+  mapProductsByCategory()
+
+  return {
+    get: () => listOfProducts,
+    getMappedProductsByKey: (params:sortParamsType) => getMappedProductsByKey(params),
+    getProductsByCategory: (category) => category === 'All' ? listOfProducts : mappedProductsByCategory.get(category) as IProduct[],
+    getCategoryList: () => Array.from(mappedProductsByCategory.keys()).filter(c => c !== 'Under 1000$') as string[],
+    sort: (products, type) => sortBySelect(products, type)
   }
 }
